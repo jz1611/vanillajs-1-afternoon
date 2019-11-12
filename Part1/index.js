@@ -33,48 +33,56 @@ function play(boxId){
     if (topLeft !== undefined && topLeft === topCenter && topLeft === topRight){
         window.alert(`${topLeft} is the winner!`);
         reset();
+        gameOver();
         return;
     }
     
     if (middleLeft !== undefined && middleLeft === middleCenter && middleLeft === middleRight){
         window.alert(`${middleLeft} is the winner!`);
-        reset()
+        reset();
+        gameOver();
         return;
     }
     
     if (bottomLeft !== undefined && bottomLeft === bottomCenter && bottomLeft === bottomRight){
         window.alert(`${bottomLeft} is the winner!`);
         reset();
+        gameOver();
         return;
     }
     
     if (topLeft !== undefined && topLeft === middleLeft && topLeft === bottomLeft){
         window.alert(`${topLeft} is the winner!`);
         reset();
+        gameOver();
         return;
     }
     
     if (topCenter !== undefined && topCenter === middleCenter && topCenter === bottomCenter){
         window.alert(`${topCenter} is the winner!`);
         reset();
+        gameOver();
         return;
     }
     
     if (topRight !== undefined && topRight === middleRight && topRight === bottomRight){
         window.alert(`${topRight} is the winner!`);
         reset();
+        gameOver();
         return;
     }
     
     if (topLeft !== undefined && topLeft === middleCenter && topLeft === bottomRight){
         window.alert(`${topLeft} is the winner!`);
         reset();
+        gameOver();
         return;
     }
-
+    
     if (topRight !== undefined && topRight === middleCenter && topRight === bottomLeft){
         window.alert(`${topRight} is the winner!`);
         reset();
+        gameOver();
         return;
     }
     
@@ -87,6 +95,8 @@ function play(boxId){
     }
     if (boardFull === true) {
         window.alert("Cat's Game!");
+        reset();
+        return;
     }
 }
 
@@ -95,5 +105,11 @@ function reset() {
     document.getElementById('player').innerText = 'X';
     for (let i = 0; i < 9; i++) {
         document.getElementById(`${i}`).innerText = '';
+    }
+}
+
+function gameOver() {
+    for (let i = 0; i < 9; i++) {
+        document.getElementById(`${i}`).id = '';
     }
 }
