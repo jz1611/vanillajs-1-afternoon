@@ -4,6 +4,11 @@ function play(boxId){
     let playerSpan = document.getElementById('player');
     
     let clickedElement = document.getElementById(boxId);
+
+    if (clickedElement.innerText !== '') {
+        window.alert('That spot is already taken.');
+        return;
+    }
     
     if (playerSpan.innerText === 'X') {
         playerSpan.innerText = 'O';
@@ -33,36 +38,43 @@ function play(boxId){
     
     if (middleLeft !== undefined && middleLeft === middleCenter && middleLeft === middleRight){
         window.alert(`${middleLeft} is the winner!`);
+        reset()
         return;
     }
     
     if (bottomLeft !== undefined && bottomLeft === bottomCenter && bottomLeft === bottomRight){
         window.alert(`${bottomLeft} is the winner!`);
+        reset();
         return;
     }
     
     if (topLeft !== undefined && topLeft === middleLeft && topLeft === bottomLeft){
         window.alert(`${topLeft} is the winner!`);
+        reset();
         return;
     }
     
     if (topCenter !== undefined && topCenter === middleCenter && topCenter === bottomCenter){
         window.alert(`${topCenter} is the winner!`);
+        reset();
         return;
     }
     
     if (topRight !== undefined && topRight === middleRight && topRight === bottomRight){
         window.alert(`${topRight} is the winner!`);
+        reset();
         return;
     }
     
     if (topLeft !== undefined && topLeft === middleCenter && topLeft === bottomRight){
         window.alert(`${topLeft} is the winner!`);
+        reset();
         return;
     }
 
     if (topRight !== undefined && topRight === middleCenter && topRight === bottomLeft){
         window.alert(`${topRight} is the winner!`);
+        reset();
         return;
     }
     
@@ -80,6 +92,7 @@ function play(boxId){
 
 function reset() {
     board = [];
+    document.getElementById('player').innerText = 'X';
     for (let i = 0; i < 9; i++) {
         document.getElementById(`${i}`).innerText = '';
     }
