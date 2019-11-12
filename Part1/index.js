@@ -78,3 +78,9 @@ function play(boxId){
     }
 }
 
+function reset() {
+    board = [];
+    for (let i = 0; i < 9; i++) {
+        document.getElementById(`${i}`).innerText = '';
+    }
+}
